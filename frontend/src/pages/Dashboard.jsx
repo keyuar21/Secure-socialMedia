@@ -103,7 +103,7 @@ const Dashboard = ({ setIsAuthenticated }) => {
     const formData = new FormData();
     formData.append('file', file);
     const res = await axios.post(`${API}/files/upload`, formData, {
-      headers: { ...headers(), 'Content-Type': 'multipart/form-data' },
+      headers: headers(),
     });
     setSuccess(`Securely uploaded. Hash: ${res.data.fileHash?.substring(0, 16)}…`);
     fetchData();
