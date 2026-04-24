@@ -1,6 +1,6 @@
 // Force .env values to override inherited shell env vars.
 // This prevents stale exported EMAIL_USER values from taking precedence.
-require('dotenv').config({ override: true });
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 app.set('trust proxy', 1);
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({
-    origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
+    origin: '*',
     credentials: false,
     methods: ['GET','POST','PUT','DELETE','OPTIONS'],
     allowedHeaders: ['Content-Type','Authorization'],
@@ -89,4 +89,5 @@ if (!process.env.ENCRYPTION_KEY) {
 app.listen(PORT, () => {
     console.log(`✅  Backend running → http://localhost:${PORT}`);
     console.log(`   Health: http://localhost:${PORT}/api/health`);
+    console.log(`   CORS Origin: ${process.env.CORS_ORIGIN || 'http://localhost:5173 (default)'}`);
 });

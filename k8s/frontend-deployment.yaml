@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keyuar-frontend
+  labels:
+    app: keyuar-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: keyuar-frontend
+  template:
+    metadata:
+      labels:
+        app: keyuar-frontend
+    spec:
+      imagePullSecrets:
+        - name: ecr-regcred
+      containers:
+        - name: frontend
+          image: 910168469763.dkr.ecr.ap-south-1.amazonaws.com/keyuar-frontend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              name: http

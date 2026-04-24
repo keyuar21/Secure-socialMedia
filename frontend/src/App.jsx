@@ -9,8 +9,15 @@ import ResetPassword from './pages/ResetPassword';
 import Feed from './pages/Feed';
 import Profile from './pages/Profile';
 
-// ── Global axios base URL (configured via VITE_API_URL in frontend/.env) ───
-axios.defaults.baseURL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+// ── Global axios base URL configuration ───
+// We prioritize VITE_API_URL, but if it's pointing to localhost while we are 
+// accessing the site remotely, we fall back to the current hostname.
+const getApiBaseUrl = () => {
+  // Use relative path so it works with Ingress regardless of the domain
+  return '/api';
+};
+
+axios.defaults.baseURL = getApiBaseUrl();
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
