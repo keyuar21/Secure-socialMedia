@@ -22,7 +22,7 @@ const TABS = [
   { id: 'logs', label: 'Security', icon: ScrollText },
 ];
 
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
 
 const Dashboard = ({ setIsAuthenticated }) => {
   const [activeTab, setActiveTab] = useState('my-files');

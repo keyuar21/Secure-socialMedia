@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Search, UserPlus } from 'lucide-react';
 import axios from 'axios';
 
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
 
 const UserSearch = ({ token, onViewProfile, onSendRequest }) => {
   const [query, setQuery] = useState('');

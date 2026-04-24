@@ -9,7 +9,7 @@ import PostCard from '../components/PostCard';
 import CommentSection from '../components/CommentSection';
 import ProfileView from '../components/ProfileView';
 
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
 
 const Feed = ({ setIsAuthenticated }) => {
   const [posts, setPosts] = useState([]);

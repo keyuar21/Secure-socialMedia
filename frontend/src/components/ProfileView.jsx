@@ -4,7 +4,7 @@ import axios from 'axios';
 import PostCard from './PostCard';
 import CommentSection from './CommentSection';
 
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
 
 const ProfileView = ({ userId, token, onBack, onViewProfile }) => {
   const [profile, setProfile] = useState(null);
