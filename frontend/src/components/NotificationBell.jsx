@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Bell, Check, CheckCheck, Heart, MessageCircle, UserPlus, UserCheck } from 'lucide-react';
 import axios from 'axios';
 
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
 
 const NOTIF_ICONS = {
   LIKE: Heart,
