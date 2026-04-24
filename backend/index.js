@@ -1,4 +1,6 @@
-require('dotenv').config();
+// Force .env values to override inherited shell env vars.
+// This prevents stale exported EMAIL_USER values from taking precedence.
+require('dotenv').config({ override: true });
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
