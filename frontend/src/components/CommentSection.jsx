@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Send, Trash2, MessageCircle } from 'lucide-react';
 import axios from 'axios';
 
-const API = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+const API = import.meta.env.VITE_API_URL || '/api';
 
 const CommentSection = ({ postId, isOpen, token }) => {
   const [comments, setComments] = useState([]);

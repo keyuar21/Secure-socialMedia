@@ -42,7 +42,7 @@ const Register = () => {
     setError('');
 
     try {
-      await axios.post('/auth/register', { email, password });
+      await axios.post('/api/auth/register', { email, password });
       navigate('/verify-registration', { state: { email } });
     } catch (err) {
       setError(err.response?.data?.error || 'Failed to register');

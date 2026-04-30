@@ -24,7 +24,7 @@ const ResetPassword = () => {
     setError('');
 
     try {
-      const res = await axios.post('/auth/reset-password', { email, otp, newPassword });
+      const res = await axios.post('/api/auth/reset-password', { email, otp, newPassword });
       navigate('/login', { state: { message: res.data.message } });
     } catch (err) {
       setError(err.response?.data?.error || 'Invalid or expired code');

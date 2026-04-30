@@ -5,7 +5,7 @@ import { ArrowLeft, Save, Camera, Mail, Calendar, Edit3 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import ProfileView from '../components/ProfileView';
 
-const API = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+const API = import.meta.env.VITE_API_URL || '/api';
 
 const Profile = ({ setIsAuthenticated }) => {
   const { userId } = useParams();

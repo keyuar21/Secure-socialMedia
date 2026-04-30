@@ -20,12 +20,12 @@ const Login = () => {
     setSuccessMsg('');
 
     try {
-      const res = await axios.post('/auth/login', { email, password });
+      const res = await axios.post('/api/auth/login', { email, password });
       navigate('/verify-login', { state: { email, totp_required: !!res.data?.totp_required } });
     } catch (err) {
       if (err.response?.status === 401 && err.response?.data?.error === 'Please verify your email first') {
         try {
-          await axios.post('/auth/resend-otp', { email });
+          await axios.post('/api/auth/resend-otp', { email });
           navigate('/verify-registration', { state: { email, message: 'We resent your verification code. Please check your email.' } });
         } catch {
           setError('Account unverified, but failed to resend code.');
@@ -47,7 +47,7 @@ const Login = () => {
     setSuccessMsg('');
 
     try {
-      const res = await axios.post('/auth/forgot-password', { email });
+      const res = await axios.post('/api/auth/forgot-password', { email });
       setSuccessMsg(res.data.message);
       setTimeout(() => navigate('/reset-password', { state: { email } }), 2000);
     } catch (err) {

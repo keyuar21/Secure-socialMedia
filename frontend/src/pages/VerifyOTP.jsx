@@ -69,8 +69,8 @@ const VerifyOTP = ({ type, setIsAuthenticated }) => {
 
     try {
       const endpoint = type === 'registration'
-        ? '/auth/verify-registration'
-        : '/auth/verify-login';
+        ? '/api/auth/verify-registration'
+        : '/api/auth/verify-login';
 
       const body = type === 'registration'
         ? { email, otp: code }

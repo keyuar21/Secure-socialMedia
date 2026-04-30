@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Users, UserPlus, UserCheck, UserX, Ban, Check, X, Search } from 'lucide-react';
 import axios from 'axios';
 
-const API = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+const API = import.meta.env.VITE_API_URL || '/api';
 
 const FriendsList = ({ token, onViewProfile }) => {
   const [friends, setFriends] = useState([]);
